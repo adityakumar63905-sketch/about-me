@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Singh</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background: #f4f4f4;        /* dim white (soft) */
+    color: #222222;             /* not pure black */
+    font-family: 'Buda', cursive;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 40px;
+    margin: 0;
+  }
+
+  #hello {
+    text-align: center;
+    font-size: 26px;
+    margin-top: 35vh;
+    cursor: pointer;
+  }
+
+  #hello small {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+
+  #text {
+    display: none;
+    white-space: pre-line;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="hello">
+  Hello Buddy<br>
+  <small>(click to continue)</small>
+</div>
+
+<div id="text"></div>
+
+<audio id="ambience" src="- Keyboard, typing sound effect.mp3" loop preload="auto"></audio>
+
+<script>
+/* ================= TEXT ================= */
+const content = `Hey, I’m Aditya Singh — born in 2007 (the date doesn’t matter, the journey does).
+I’m currently pursuing pre-med, while also diving deep into coding and technology, because I believe curiosity across fields builds sharper perspectives and a stronger mind.
+
+I’m ambitious — but I’ll admit, lazy on some days. The gym plan from 2022 is still waiting its moment, but growth isn’t always about muscle — sometimes it’s mental, emotional, and unseen.
+
+Somewhere between logic and emotion — that’s where I exist.
+Not in a rush to impress — just focused on building something real.
+I’m good at heart, and I admit I have flaws, but none that harm others.
+I’m aware of my boundaries — and I respect them.
+
+I’m trying to learn everything, to build something big (can’t describe it yet — it’s still top secret 👀), and to stay focused on becoming a better version of myself every day.
+
+Life hasn’t been simple, but I’ve learned to take it one step at a time — growing, improving, and staying grounded.
+I don’t chase perfection anymore; I chase progress and peace.
+
+I believe in big dreams, quiet effort, and finding meaning even in random thoughts.
+Just a human — learning, leveling up, and enjoying the journey as it unfolds.`;
+
+/* ================ ELEMENTS ================ */
+const target = document.getElementById("text");
+const hello = document.getElementById("hello");
+const ambience = document.getElementById("ambience");
+
+/* ================ TYPING ================= */
+let index = 0;
+let started = false;
+const speed = 45;
+
+ambience.volume = 0.12;
+
+function autoScroll() {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+}
+
+function typeEffect() {
+  if (index < content.length) {
+    target.innerHTML += content.charAt(index);
+    index++;
+    autoScroll();
+    setTimeout(typeEffect, speed);
+  } else {
+    ambience.pause();
+    ambience.currentTime = 0;
+  }
+}
+
+hello.onclick = () => {
+  if (started) return;
+  started = true;
+
+  hello.style.display = "none";
+  target.style.display = "block";
+
+  ambience.play().catch(() => {});
+  typeEffect();
+};
+</script>
+
+</body>
+</html>
