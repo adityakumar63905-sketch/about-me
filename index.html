@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aditya Singh</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap" rel="stylesheet">
+<!-- Google Font: Buda -->
+<link href="https://fonts.googleapis.com/css2?family=Buda:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
   body {
-    background: #f4f4f4;        /* dim white (soft) */
-    color: #222222;             /* not pure black */
+    background: #fafafa;
+    color: #1a1a1a;
     font-family: 'Buda', cursive;
     font-size: 18px;
-    font-weight: 300;
-    line-height: 1.8;
+    font-weight: 400;
+    line-height: 1.85;
     padding: 40px;
     margin: 0;
   }
@@ -25,11 +25,12 @@
     font-size: 26px;
     margin-top: 35vh;
     cursor: pointer;
+    font-weight: 500;
   }
 
   #hello small {
     font-size: 14px;
-    opacity: 0.6;
+    opacity: 0.65;
   }
 
   #text {
@@ -51,7 +52,6 @@
 <audio id="ambience" src="- Keyboard, typing sound effect.mp3" loop preload="auto"></audio>
 
 <script>
-/* ================= TEXT ================= */
 const content = `Hey, I’m Aditya Singh — born in 2007 (the date doesn’t matter, the journey does).
 I’m currently pursuing pre-med, while also diving deep into coding and technology, because I believe curiosity across fields builds sharper perspectives and a stronger mind.
 
@@ -70,12 +70,10 @@ I don’t chase perfection anymore; I chase progress and peace.
 I believe in big dreams, quiet effort, and finding meaning even in random thoughts.
 Just a human — learning, leveling up, and enjoying the journey as it unfolds.`;
 
-/* ================ ELEMENTS ================ */
 const target = document.getElementById("text");
 const hello = document.getElementById("hello");
 const ambience = document.getElementById("ambience");
 
-/* ================ TYPING ================= */
 let index = 0;
 let started = false;
 const speed = 45;
@@ -83,10 +81,7 @@ const speed = 45;
 ambience.volume = 0.12;
 
 function autoScroll() {
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: "smooth"
-  });
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 }
 
 function typeEffect() {
